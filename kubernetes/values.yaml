@@ -1,0 +1,11 @@
+datadog:
+  # Enable log Collection
+  logs:
+    enabled: true
+    containerCollectAll: true
+
+  # kubelet configuration
+  kubelet:
+    # Toggle kubelet TLS verification
+    # This is needed when installing on Docker-Desktop kubernetes environment
+    tlsVerify: false
