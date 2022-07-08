@@ -1,0 +1,5 @@
+logs:
+  - type: file
+    path: "logging-script/script.log"
+    service: "logging-script"
+    source: "logging-script"
