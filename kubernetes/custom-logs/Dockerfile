@@ -23,8 +23,7 @@ RUN touch script.log \
     && mkdir /etc/datadog-agent/conf.d/logging-script.d \
     && cat script-conf.yaml > /etc/datadog-agent/conf.d/logging-script.d/conf.yaml
 
-# Might not be needed
-#RUN service datadog-agent restart
+RUN service datadog-agent start
 
 RUN pip install -r requirements.txt
 

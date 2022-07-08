@@ -16,6 +16,7 @@ build:
 
 run: build
 	docker run -d --rm --name dd-agent-logging-script logging-script
+	docker exec dd-agent-logging-script service datadog-agent start
 
 stop:
 	docker stop dd-agent-logging-script
