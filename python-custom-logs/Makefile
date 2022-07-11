@@ -6,17 +6,17 @@ build-dev:
 	docker build --no-cache \
 		--build-arg DD_API_KEY=${DD_API_KEY} \
 		--build-arg DD_SITE=${DD_SITE} \
-		-t logging-script .
+		-t logging-python-script .
 
 build:
 	docker build \
 		--build-arg DD_API_KEY=${DD_API_KEY} \
 		--build-arg DD_SITE=${DD_SITE} \
-		-t logging-script .
+		-t logging-python-script .
 
 run: build
-	docker run -d --rm --name dd-agent-logging-script logging-script
-	docker exec dd-agent-logging-script service datadog-agent start
+	docker run -d --rm --name dd-agent-logging-python-script logging-python-script
+	docker exec dd-agent-logging-python-script service datadog-agent start
 
 stop:
-	docker stop dd-agent-logging-script
+	docker stop dd-agent-logging-python-script

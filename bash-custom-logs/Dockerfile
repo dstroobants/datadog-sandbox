@@ -1,4 +1,4 @@
-FROM python:3
+FROM debian
 
 ARG DD_API_KEY
 ARG DD_SITE
@@ -30,4 +30,4 @@ RUN service datadog-agent start
 
 RUN pip install -r requirements.txt
 
-CMD ["python3","-u","main.py"]
+CMD ["bash","script.sh"]
