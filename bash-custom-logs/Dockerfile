@@ -6,6 +6,9 @@ ARG DD_SITE
 WORKDIR /logging-script
 COPY app/. .
 
+# Install curl to download the datadog agent
+RUN apt-get update && apt-get install curl -y
+
 # Install Datadog Agent
 RUN DD_AGENT_MAJOR_VERSION=7 \
     DD_API_KEY=$DD_API_KEY DD_SITE=$DD_SITE \
@@ -27,7 +30,5 @@ RUN touch script.log \
     && cat script-conf.yaml > /etc/datadog-agent/conf.d/logging-script.d/conf.yaml
 
 RUN service datadog-agent start
-
-RUN pip install -r requirements.txt
 
 CMD ["bash","script.sh"]

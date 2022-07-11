@@ -1,5 +1,5 @@
 logs:
   - type: file
     path: "/logging-script/script.log"
-    service: "logging-script"
-    source: "logging-script"
+    service: "logging-python-script"
+    source: "logging-python-script"
