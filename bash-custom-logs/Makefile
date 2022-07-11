@@ -15,7 +15,8 @@ build:
 		-t logging-bash-script .
 
 run: build
-	docker run -d --rm -v ${PWD}/app/log.conf:/logging-script/log.conf --name dd-agent-logging-bash-script logging-bash-script
+	docker run -d --rm -v ${PWD}/app/log.conf:/logging-script/log.conf \
+		--name dd-agent-logging-bash-script logging-bash-script
 	docker exec dd-agent-logging-bash-script service datadog-agent start
 
 stop:

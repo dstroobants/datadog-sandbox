@@ -29,6 +29,7 @@ RUN touch script.log \
     && mkdir /etc/datadog-agent/conf.d/logging-script.d \
     && cat script-conf.yaml > /etc/datadog-agent/conf.d/logging-script.d/conf.yaml
 
-RUN service datadog-agent start
+# Can be used for testing
+# RUN service datadog-agent start
 
 CMD ["bash","script.sh"]
