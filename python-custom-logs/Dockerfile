@@ -18,6 +18,9 @@ RUN cp /etc/datadog-agent/security-agent.yaml.example /etc/datadog-agent/securit
 # Update Datadog agent to activate log collection
 RUN sed -i 's/# logs_enabled: false/logs_enabled: true/' /etc/datadog-agent/datadog.yaml
 
+# Set log level to Debug
+RUN sed -i 's/# log_level: "info"/log_level: "debug"/' /etc/datadog-agent/datadog.yaml
+
 # Create configuration file for the agent
 RUN touch script.log \
     && mkdir /etc/datadog-agent/conf.d/logging-script.d \
