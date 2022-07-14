@@ -1,6 +1,7 @@
 #!/bin/bash
 while true; do
-  log_content=$(cat log.conf)
-  echo $log_content+='\n' >> script.log
+  while IFS='' read -r line || [[ -n "$line" ]]; do
+    echo $line+='\n' >> script.log
+  done < log.txt
   sleep 5
 done
