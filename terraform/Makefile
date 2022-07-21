@@ -2,7 +2,7 @@ init:
 	terraform init
 
 plan:
-	cp ../../.env .
+	cp ../.env .
 	terraform plan
 
 apply:
