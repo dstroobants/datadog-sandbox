@@ -1,4 +1,5 @@
 init:
+	cp ../.env .
 	terraform init
 
 plan:
