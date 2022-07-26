@@ -2,6 +2,9 @@
 include ../.env
 export
 
+$(shell chmod +x ../utils/local_port.sh)
+LOCAL_PORT=$(shell sh ../utils/local_port.sh)
+
 build-dev:
 	docker build --no-cache \
 		--build-arg DD_API_KEY=${DD_API_KEY} \
@@ -15,7 +18,7 @@ build:
 		-t logs-apache-dd-agent .
 
 run: build
-	docker run -d --rm -p 5008:80 \
+	docker run -d --rm -p ${LOCAL_PORT}:80 \
 		--name logs-apache-dd-agent logs-apache-dd-agent
 	docker exec logs-apache-dd-agent service datadog-agent start
 

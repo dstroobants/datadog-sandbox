@@ -2,6 +2,9 @@
 include ../.env
 export
 
+$(shell chmod +x ../utils/local_port.sh)
+LOCAL_PORT=$(shell sh ../utils/local_port.sh)
+
 build-dev:
 	docker build --no-cache \
 		--build-arg DD_API_KEY=${DD_API_KEY} \
@@ -15,7 +18,8 @@ build:
 		-t apm-flask-api .
 
 run: build
-	docker run -d --rm -p 5000:5000 \
+	docker run -d --rm -p ${LOCAL_PORT}:5000 \
+		-v ${PWD}/app/app.py:/app.py \
 		--name dd-agent-apm-flask-api apm-flask-api
 	docker exec dd-agent-apm-flask-api service datadog-agent start
 

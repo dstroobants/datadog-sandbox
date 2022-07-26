@@ -20,9 +20,8 @@ class Param(Resource):
         # Get the active span
         current_span = tracer.current_span()
         if current_span:
-            current_span.set_tags{
-                'param1': request.args.get('param1'),
-                'param2': request.args.get('param2'),
+            current_span.set_tag{
+                'param1': request.args.get('param1')
             }
         return {request.args.get('param1'): request.args.get('param2')}
 
