@@ -3,7 +3,12 @@ include ../.env
 export
 
 $(shell chmod +x ../utils/local_port.sh)
+$(shell chmod +x ../utils/svc_name.sh)
 LOCAL_PORT=$(shell sh ../utils/local_port.sh)
+SVC_NAME=$(shell sh ../utils/svc_name.sh)
+
+test:
+	echo ${SVC_NAME}
 
 build-dev:
 	docker build --no-cache \
