@@ -30,3 +30,6 @@ run: build
 stop:
 	docker stop dd-agent-${SVC_NAME}
 	docker rm dd-agent-${SVC_NAME}
+
+exec:
+	docker exec -it dd-agent-${SVC_NAME} bash

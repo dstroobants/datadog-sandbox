@@ -1,0 +1,5 @@
+instances:
+  - use_mount: false
+    use_lsblk: true
+    device_tag_re: 
+      /dev/vda1: "disk_label:test-disk-dev-vda"

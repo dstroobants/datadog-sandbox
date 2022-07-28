@@ -1,0 +1,14 @@
+### Auto detected defaults
+apm_config:
+  apm_non_local_traffic: true
+
+# Use java container support
+jmx_use_container_support: true
+
+## Enable Datadog Agent log collection by setting logs_enabled to true.
+logs_enabled: true
+
+## Minimum log level of the Datadog Agent.
+## Valid log levels are: trace, debug, info, warn, error, critical, and off.
+## Note: When using the 'off' log level, quotes are mandatory.
+log_level: 'debug'
